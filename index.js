@@ -13,7 +13,7 @@ app.get('/', function(req,res){
 app.use(express.static(path.join(__dirname,'/public')));
 
 app.get('/subjects', subjectRoutes.index);
-app.get('/subjects/add/:subject', subjectRoutes.add);
+app.get('/subjects/add', subjectRoutes.addScreen);
 const port = 3007;
 app.listen(port, function(){
         console.log('web app started on port : ' + port);

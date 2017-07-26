@@ -4,6 +4,9 @@ module.exports = function() {
         const index = function(req, res) {
                 res.render('subjects/index', {subjects : subjectList});
         }
+        const addScreen = function(req,res){
+                res.render('subjects/add');
+        }
 
         const add = function(req, res) {
                 var subject = req.params.subject;
@@ -22,6 +25,7 @@ module.exports = function() {
 
         return {
                 index,
-                add
+                add,
+                addScreen
         }
 }
