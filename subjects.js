@@ -1,31 +1,31 @@
 module.exports = function() {
-        const subjectList = [];
+        const greetedNames = [];
 
         const index = function(req, res) {
-                res.render('subjects/index', {subjects : subjectList});
-        }
-        const addScreen = function(req,res){
-                res.render('subjects/add');
+                res.render('add', {subjects: greetedNames});
         }
 
         const add = function(req, res) {
-                var subject = req.params.subject;
-                var foundSubject = subjectList.find(function(currentSubject) {
-                        return currentSubject === subject
+                var name = req.body.name;
+
+                var foundSubject = greetedNames.find(function(currentSubject) {
+                        return currentSubject === name
 
                 });
 
-                if (subject && !foundSubject) {
-                        subjectList.push(subject);
+                if (name && !foundSubject) {
+                        greetedNames.push(name);
+
+                } else {
+                        req.flash('error', 'name already greeted!');
                 }
 
-                res.send('Hello, ' + subject + '!');
-                // res.redirect('/subjects');
+                var output = 'Hello, ' + name + '!';
+                res.render('index', {name: output});
         }
 
         return {
                 index,
-                add,
-                addScreen
+                add
         }
 }

@@ -2,3 +2,9 @@ body{
         background-color: lavender;
         margin: 10px;
 }
+ul{
+        list-style: none;
+}
+.error{
+        color: red;
+}

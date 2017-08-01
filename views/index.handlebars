@@ -1,0 +1,22 @@
+<head>
+        <title>Home</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/style.css">
+</head>
+<div class="error">
+        {{messages.error}}
+</div>
+
+<h1>GREETINGS WEB-APP</h1>
+<form class="" action="/subjects" method="post">
+<input type="text" name="name"  placeholder="Type a name here">
+<input type="submit" name="" value="Greet"><br><br>
+<input type="radio" name="language" value="IsiXhosa">IsiXhosa
+<input type="radio" name="language" value="English">English
+<input type="radio" name="language" value="Afrikaans">Afrikaans
+
+</form>
+<h1>{{name}}</h1>
+
+
+<a href="/subjects/add">greeted</a>
