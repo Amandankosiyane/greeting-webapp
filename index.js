@@ -26,7 +26,7 @@ app.get('/greets', namesRoutes.greeted);
 // app.get('/greets/count', namesRoutes.count)
 app.post('/greets', namesRoutes.greeted);
 
-const port = 3007;
+const port = process.env.PORT || 3007;
 app.listen(port, function(){
         console.log('web app started on port : ' + port);
 });
