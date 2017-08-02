@@ -3,29 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "dev": "^0.1.3",
-    "express": "^4.15.3",
-    "express-flash": "git://github.com/RGBboy/express-flash.git",
-    "express-session": "^1.15.3",
-    "heroku": "^0.2.0",
-    "mongoose": "^4.11.5",
-    "nodemon": "^1.11.0"
+    "express-handlebars": "^3.0.0",
+    "body-parser": "*",
+    "express": "*",
+    "express-session": "*",
+    "express-flash": "*"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Amandankosiyane/greetings-webapp.git"
+    "url": "git+https://github.com/Amandankosiyane/greeting-webapp.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Amandankosiyane/greetings-webapp/issues"
+    "url": "https://github.com/Amandankosiyane/greeting-webapp/issues"
   },
-  "homepage": "https://github.com/Amandankosiyane/greetings-webapp#readme"
+  "homepage": "https://github.com/Amandankosiyane/greeting-webapp#readme"
 }
