@@ -4,8 +4,8 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const flash = require('express-flash');
 const session = require('express-session');
-const SubjectRoutes = require('./subjects');
-const  subjectRoutes = SubjectRoutes();
+const NamesRoutes = require('./greets');
+const  namesRoutes = NamesRoutes();
 const app = express();
 
 app.engine('.handlebars', exphbs({defaultLayout: 'main'}));
@@ -18,10 +18,13 @@ app.use(express.static(path.join(__dirname,'/public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get('/subjects/add', subjectRoutes.index);
-app.get('/subjects', subjectRoutes.add);
-// app.get('/subjects/count', subjectRoutes.count)
-app.post('/subjects', subjectRoutes.add);
+app.get('/', function(req,res){
+        res.redirect('/greets')
+})
+app.get('/greets/greeted', namesRoutes.index);
+app.get('/greets', namesRoutes.greeted);
+// app.get('/greets/count', namesRoutes.count)
+app.post('/greets', namesRoutes.greeted);
 
 const port = 3007;
 app.listen(port, function(){

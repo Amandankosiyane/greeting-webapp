@@ -9,6 +9,8 @@
     "express": "^4.15.3",
     "express-flash": "git://github.com/RGBboy/express-flash.git",
     "express-session": "^1.15.3",
+    "heroku": "^0.2.0",
+    "mongoose": "^4.11.5",
     "nodemon": "^1.11.0"
   },
   "devDependencies": {},
