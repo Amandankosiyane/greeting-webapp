@@ -5,7 +5,9 @@ const bodyParser = require('body-parser');
 const flash = require('express-flash');
 const session = require('express-session');
 const NamesRoutes = require('./greets');
-const  namesRoutes = NamesRoutes();
+const models = require('./models');
+
+const  namesRoutes = NamesRoutes(models);
 const app = express();
 
 app.engine('.handlebars', exphbs({defaultLayout: 'main'}));
@@ -15,6 +17,7 @@ app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 * 30 }}));
 app.use(flash());
 
 app.use(express.static(path.join(__dirname,'/public')));
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 

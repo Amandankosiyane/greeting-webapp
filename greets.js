@@ -1,4 +1,4 @@
-module.exports = function() {
+module.exports = function(models) {
         const greetedNames = [];
 
         const index = function(req, res) {
