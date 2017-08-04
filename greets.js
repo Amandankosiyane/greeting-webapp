@@ -17,10 +17,6 @@ module.exports = function(models) {
                          nym: req.body.name
                 };
 
-                // var foundName = greetedNames.find(function(currentName) {
-                //         return currentName === name
-
-                // });
                 if(!name || !name.nym){
                         req.flash('error', 'Name should not be blank');
                 }else{
@@ -31,7 +27,6 @@ module.exports = function(models) {
                                         }else{
                                                 return next(err);
                                         }
-                                        //using next as a middleware to pass the error if there is one
                                 }
                         })
                 }
@@ -54,27 +49,3 @@ module.exports = function(models) {
                 greeted
         }
 }
-
-
-
-
-// const greeted = function(req, res,next) {
-//         var language = req.body.language;
-//         var languageGreeted = "";
-//         var name = {
-//                  nym: req.body.name
-//         };
-//
-//         // var foundName = greetedNames.find(function(currentName) {
-//         //         return currentName === name
-//
-//         // });
-//         if(!name || !name.nym){
-//                 req.flash('error', 'Name should not be blank');
-//         }else{
-//                 models.Greets.create(name, function(err, results){
-//                         if(err){
-//                                 return next(err);
-//                         }
-//                 })
-//         }
