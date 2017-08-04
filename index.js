@@ -5,8 +5,8 @@ const bodyParser = require('body-parser');
 const flash = require('express-flash');
 const session = require('express-session');
 const NamesRoutes = require('./greets');
-const models = require('./models');
-
+const Models = require('./models');
+const models = Models('mongodb://localhost/greetings');
 const  namesRoutes = NamesRoutes(models);
 const app = express();
 

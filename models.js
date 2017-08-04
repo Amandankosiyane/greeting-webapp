@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 module.exports = function(mongoUrl){
         mongoose.connect(mongoUrl);
-        const Name = mongoose.model('Name',{Names: String});
-
-        return{
-                Name
+        const nameSchema = mongoose.Schema({nym: String});
+        nameSchema.index({nym: 1}, {unique: true});
+        const Greets = mongoose.model('Greets', nameSchema);
+        return {
+                Greets
         };
 }
