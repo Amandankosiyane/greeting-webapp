@@ -9,13 +9,15 @@
 
 <h1>GREETINGS WEB APPLICATION</h1>
 <form class="lang" action="/greets" method="post">
-<input type="text" name="name"  placeholder="Type a name here">
+        <div class="formBox">
+<b>Name:</b> <input type="text" name="name"  placeholder="Type a name here">
 <input type="submit" name="" value="Greet"><br><br>
-<input type="radio" name="language" value="IsiXhosa">IsiXhosa
-<input type="radio" name="language" value="English">English
-<input type="radio" name="language" value="Afrikaans">Afrikaans
-</form>
-<h2>{{name}}</h2>
-
-
+<input type="radio" name="language" value="IsiXhosa"><b>IsiXhosa </b>
+<input type="radio" name="language" value="English"> <b>English</b>
+<input type="radio" name="language" value="Afrikaans"> <b>Afrikaans</b><br><br>
+<!-- <input type="submit" name="" value="Clear"><br><br><br><br> -->
 <a href="/greets/greeted">greets</a>
+<h2>{{name}}</h2>
+</div>
+
+</form>

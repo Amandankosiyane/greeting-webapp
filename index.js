@@ -26,7 +26,11 @@ app.get('/', function(req,res){
 })
 app.get('/greets/greeted', namesRoutes.index);
 app.get('/greets', namesRoutes.greeted);
+// app.get('/greets',namesRoutes.counter);
 app.post('/greets', namesRoutes.greeted);
+// app.post('/greets',namesRoutes.counter);
+
+
 
 const port = process.env.PORT || 3007;
 app.listen(port, function(){

@@ -42,6 +42,8 @@ module.exports = function(models) {
                         languageGreeted = "Halo, " + name.nym + "!"
                 }
                 res.render('index', {name: languageGreeted});
+
+
         }
 
         return {

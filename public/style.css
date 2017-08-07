@@ -1,9 +1,13 @@
 body{
         background-color: lavender;
         margin: 50px;
+        background-image: url(myBackgroungImmo.jpg);
+        background-size: cover;
 }
 ul{
         list-style: none;
+        text-align: center;
+        font-size: 25px;
 }
 .error{
         color: red;
@@ -11,8 +15,22 @@ ul{
 
 h1{
         text-align: center;
+        font-size: 70px;
+        font-weight: bolder;
+        font-style: oblique;
+}
+h3{
+        text-align: center;
+        font-size: 50px;
+}
+p{
+        text-align: center;
+        font-size: 20px;
+}
+a{
+        font-size: 20px;
 }
 
-/*.lang{
-        cursor: pointer;
-}*/
+.formBox{
+        text-align: center;
+}
