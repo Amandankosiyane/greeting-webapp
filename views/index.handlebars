@@ -3,14 +3,11 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="/style.css">
 </head>
-<div class="error">
-        {{messages.error}}
-</div>
 
 <h1>GREETINGS WEB APPLICATION</h1>
 <form class="lang" action="/greets" method="post">
         <div class="formBox">
-<b>Name:</b> <input type="text" name="name"  placeholder="Type a name here">
+<b>Name:</b> <input type="text" name="name"  placeholder="Type a name here" required="">
 <input type="submit" name="" value="Greet"><br><br>
 <input type="radio" name="language" value="IsiXhosa"><b>IsiXhosa </b>
 <input type="radio" name="language" value="English"> <b>English</b>
@@ -21,3 +18,7 @@
 </div>
 
 </form>
+
+<div class="error">
+        {{messages.error}}
+</div>

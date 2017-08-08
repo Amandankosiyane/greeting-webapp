@@ -18,17 +18,24 @@ module.exports = function(models) {
                 };
 
                 if(!name || !name.nym){
-                        req.flash('error', 'Name should not be blank');
-                }else{
+                        req.flash('error', 'Name should not be blank!!!');
+                }
+                else {
+
+                if (language === undefined) {
+                        req.flash('error', 'Please select a language!!!');
+                }
+                else{
                         models.Greets.create(name, function(err, results){
                                 if(err){
                                         if(err.code === 11000){
-                                                req.flash('error', 'Name already exist');
+                                                req.flash('error', 'Name already exist!!!');
                                         }else{
                                                 return next(err);
                                         }
                                 }
                         })
+                }
                 }
 
 

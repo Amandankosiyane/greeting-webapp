@@ -34,3 +34,7 @@ a{
 .formBox{
         text-align: center;
 }
+.error{
+        text-align: center;
+        font-size: 25px;
+}
