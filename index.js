@@ -25,10 +25,10 @@ app.get('/', function(req,res){
         res.redirect('/greets')
 })
 app.get('/greets/greeted', namesRoutes.index);
-app.get('/greets', namesRoutes.greeted);
-// app.get('/greets',namesRoutes.counter);
+app.get('/greets', namesRoutes.showGreets);
 app.post('/greets', namesRoutes.greeted);
-// app.post('/greets',namesRoutes.counter);
+app.get('/counter/:user_id', namesRoutes.counter);
+app.post('/counter/:user_id', namesRoutes.counter);
 
 
 

@@ -17,11 +17,11 @@ describe('models should be able to', function(){
                         })
                 });
         });
-        
+
         it('should not allow duplicate names', function(done){
                 var GreetsData = { nym: 'the test nym'}
                 models.Greets.create(GreetsData, function(err){
-                        // done(err);
+
                                 var GreetsData = { nym: 'the test nym'}
                                 models.Greets.create(GreetsData, function(err){
                                         assert.ok(err, 'should give an error for duplicate name');
@@ -29,4 +29,5 @@ describe('models should be able to', function(){
                                         });
                         });
         });
+
 });
