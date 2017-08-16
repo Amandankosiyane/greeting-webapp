@@ -6,16 +6,21 @@
 
 <h1>GREETINGS WEB APPLICATION</h1>
 <form class="lang" action="/greets" method="post">
-        <div class="formBox">
-<b>Name:</b> <input type="text" name="name"  placeholder="Type a name here" required="" class="textbox">
-<input type="submit" name="" value="Greet"><br><br>
-<input type="radio" name="language" value="IsiXhosa"><b>IsiXhosa </b>
-<input type="radio" name="language" value="English"> <b>English</b>
-<input type="radio" name="language" value="Afrikaans"> <b>Afrikaans</b><br><br>
+        <div class="formBox" align="center">
+
+<label><b>Name:</b></label>
+ <input type="text" name="name"  placeholder="Type a name here" required="" class="textbox">
+<input type="submit" name="" value="Greet me!" id="greetBtn"><br><br>
+<input type="radio" name="language" value="IsiXhosa">
+<label for="English"><b>IsiXhosa</b></label>
+<input type="radio" name="language" value="English">
+<label for="English"><b>English</b></label>
+<input type="radio" name="language" value="Afrikaans">
+<label for="English"><b>Afrikaans</b></label>
 <!-- <input type="submit" name="" value="Clear"><br><br><br><br> -->
 <a href="/greets/greeted">greets</a>
 <h2>{{name}}</h2>
-<h2>{{counter}}</h2>
+<h3>{{msg}}</h3>
 </div>
 
 </form>

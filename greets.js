@@ -15,8 +15,10 @@ module.exports = function(models) {
                 res.render('index');
         }
 
+
         const greeted = function(req, res, next) {
                 var language = req.body.language;
+                var msg = "";
                 var languageGreeted = "";
                 var name = {
                         nym: req.body.name
@@ -32,69 +34,85 @@ module.exports = function(models) {
                                 models.Greets.findOne({
                                                 nym: req.body.name
                                         }, function(err, name) {
-                                                if (err) {
+                                                if (err){
                                                         return next(err);
+                                        }
+
+                                        if (name) {
+
+                                                console.log('name:', name);
+
+                                                name.countGreetings = name.countGreetings + 1;
+                                                if (language === "IsiXhosa") {
+                                                        languageGreeted = "Molo, " + name.nym + "!"
+                                                } else if (language === "English") {
+                                                        languageGreeted = "Hello, " + name.nym + "!"
+                                                } else if (language === "Afrikaans") {
+                                                        languageGreeted = "Halo, " + name.nym + "!"
                                                 }
 
-
-
-
-                                                if (name) {
-
-                                                        console.log('name:', name);
-
-                                                        name.countGreetings = name.countGreetings + 1;
-                                                        if (language === "IsiXhosa") {
-                                                                languageGreeted = "Molo, " + name.nym + "!"
-                                                        } else if (language === "English") {
-                                                                languageGreeted = "Hello, " + name.nym + "!"
-                                                        } else if (language === "Afrikaans") {
-                                                                languageGreeted = "Halo, " + name.nym + "!"
+                                                name.save(function(err, results) {
+                                                        if (err) {
+                                                                return next(err);
                                                         }
+                                                })
 
-                                                        name.save(function(err, results) {
-                                                                if (err) {
-                                                                        return next(err)
+                                                models.Greets.find({}, function(err, names) {
+                                                        if (err) {
+                                                                return next(err)
+                                                        }
+                                                        msg = 'Names greeted for this session is ' + names.length
+
+                                                        var data = {
+                                                                name: languageGreeted,
+                                                                msg: msg
+                                                        }
+                                                        console.log(data);
+                                                        res.render('index', data);
+                                                })
+
+
+                                        }
+
+                                        if (name === null) {
+                                                models.Greets.create({
+                                                        nym: req.body.name,
+                                                        countGreetings: 1
+                                                }, function(err, results) {
+                                                        if (err) {
+                                                                return next(err);
                                                                 }
-                                                        })
 
-
-                                                        res.render('index', {
-                                                                name: languageGreeted
-                                                        });
-
-                                                }
-
-                                                if (name === null) {
-                                                        models.Greets.create({
-                                                                        nym: req.body.name,
-                                                                        countGreetings: 1
-                                                                }, function(err, results) {
+                                                        models.Greets.findOne({
+                                                                nym: req.body.name
+                                                        }, function(err, name) {
+                                                                if (err) {
+                                                                        return next(err);
+                                                                }
+                                                                if (language === "IsiXhosa") {
+                                                                        languageGreeted = "Molo, " + name.nym + "!"
+                                                                } else if (language === "English") {
+                                                                        languageGreeted = "Hello, " + name.nym + "!"
+                                                                } else if (language === "Afrikaans") {
+                                                                        languageGreeted = "Halo, " + name.nym + "!"
+                                                                }
+                                                                models.Greets.find({}, function(err, names) {
                                                                         if (err) {
-                                                                                return next(err);
+                                                                                return next(err)
                                                                         }
+                                                                        msg = 'Names greeted for this session is ' + names.length
 
-                                                                        models.Greets.findOne({
-                                                                                        nym: req.body.name
-                                                                                }, function(err, name) {
-                                                                                        if (err) {
-                                                                                                return next(err);
-                                                                                        }
-                                                                                
-                                                                                if (language === "IsiXhosa") {
-                                                                                        languageGreeted = "Molo, " + name.nym + "!"
-                                                                                } else if (language === "English") {
-                                                                                        languageGreeted = "Hello, " + name.nym + "!"
-                                                                                } else if (language === "Afrikaans") {
-                                                                                        languageGreeted = "Halo, " + name.nym + "!"
-                                                                                }
-                                                                                res.render('index', {
-                                                                                        name: languageGreeted
-                                                                                });
-
-                                                                        })
+                                                                        var data = {
+                                                                                name: languageGreeted,
+                                                                                msg: msg
+                                                                        }
+                                                                        console.log(data);
+                                                                        res.render('index', data);
+                                                                })
 
                                                         })
+
+                                                })
 
                                         }
                                 })
@@ -104,7 +122,7 @@ module.exports = function(models) {
 
 
 
-const counter = function(req, res) {
+const counter = function(req, res, next) {
         var user_id = req.params.user_id;
 
         models.Greets.findOne({

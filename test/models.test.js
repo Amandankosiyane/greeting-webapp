@@ -10,7 +10,6 @@ describe('models should be able to', function(){
         it('should store names greeted to mongoDB', function(done){
                 var GreetsData = { nym: 'the test nym'}
                 models.Greets.create(GreetsData, function(err){
-                        // done(err);
                         models.Greets.find({nym: 'the test nym'}, function(err,greets){
                                 assert.equal(1, greets.length);
                                 done(err);
