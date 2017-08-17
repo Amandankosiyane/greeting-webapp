@@ -29,6 +29,9 @@ app.get('/greets', namesRoutes.showGreets);
 app.post('/greets', namesRoutes.greeted);
 app.get('/counter/:user_id', namesRoutes.counter);
 app.post('/counter/:user_id', namesRoutes.counter);
+app.get('/clear', namesRoutes.clearData);
+app.post('/clear', namesRoutes.clearData)
+
 
 
 

@@ -24,12 +24,9 @@ module.exports = function(models) {
                         nym: req.body.name
                 };
 
-                if (!name || !name.nym) {
-                        req.flash('error', 'Name should not be blank!!!');
-                } else {
-
-                        if (language === undefined) {
+                        if (!language) {
                                 req.flash('error', 'Please select a language!!!');
+                                res.render('index');
                         } else {
                                 models.Greets.findOne({
                                                 nym: req.body.name
@@ -117,7 +114,6 @@ module.exports = function(models) {
                                         }
                                 })
                 }
-        }
 }
 
 
@@ -143,10 +139,20 @@ const counter = function(req, res, next) {
         });
 }
 
+const clearData = function(req,res,next){
+models.Greets.remove({}, function(err){
+        if (err) {
+                return next(err);
+        }
+        res.render('index');
+})
+}
+
 return {
         index,
         greeted,
         showGreets,
-        counter
+        counter,
+        clearData
 }
 }

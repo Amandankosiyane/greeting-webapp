@@ -5,12 +5,15 @@
 </head>
 
 <h6>Greeted names</h6>
+        <!-- <div class="resetMyData">
+<form  action="/clear" method="post" align="center" >
+                <input type="submit" name="" value="Reset">
+</form>
+</div> -->
 <ul>
         {{#each greets}}
         <li><a href="/counter/{{this._id}}">{{this.nym}}</a></li>
         {{/each}}
 
-
 </ul>
-
 <p><a href="/greets">Home page</a></p>

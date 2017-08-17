@@ -5,6 +5,10 @@
 </head>
 
 <h1>GREETINGS WEB APPLICATION</h1>
+<h5>This is a basic web application that allows a user to greet people of their own choice using three different languages.<br>
+        As a user you can also check how many people that you have  greeted and check how many times you have greeted people, <br>
+        you can also check the number of greetings per person. This application also allows the user to clear the history of greeted people.
+</h5>
 <form class="lang" action="/greets" method="post">
         <div class="formBox" align="center">
 
@@ -17,14 +21,13 @@
 <label for="English"><b>English</b></label>
 <input type="radio" name="language" value="Afrikaans">
 <label for="English"><b>Afrikaans</b></label>
-<!-- <input type="submit" name="" value="Clear"><br><br><br><br> -->
 <a href="/greets/greeted">greets</a>
-<h2>{{name}}</h2>
-<h3>{{msg}}</h3>
-</div>
-
-</form>
-
+<!-- <input type="submit" name="" value="Clear"> -->
+<a type="submit" href="/clear" class="resetBtn">Reset</a><br><br>
 <div class="error">
         {{messages.error}}
+</div>
+<h2>{{name}}</h2>
+<h3>{{msg}}</h3>
+</form>
 </div>
