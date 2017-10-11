@@ -91,9 +91,9 @@ web app started on port: 3007
 http://localhost:3007
 
 ```
-- Then you should be able to _greet people_ and see the _counter_.
-- If you want to see _greeted_ people _click_ on the link that is written _greets_.
-- When you are on that page that shows you greeted people, you can now be able to check the _counter for each person by clicking the name of the person_.
+- Then you should be able to **greet people** and see the **counter**.
+- If you want to see **greeted** people **click** on the link that is written **greets**.
+- When you are on that page that shows you greeted people, you can now be able to check the **counter for each person by clicking the name of the person**.
 
 
 ## Let's run the Application on Heroku
