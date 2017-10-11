@@ -1,5 +1,4 @@
-# shoes_api
-
+# greeting-webapp
 
 ## About
 - This web application allows user to greet different people with 3 different languages.
